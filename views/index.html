@@ -9,10 +9,47 @@
     <title>Buckup</title>
 
     <link href="static/css/bootstrap.css" rel="stylesheet" />    
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+    <style type="text/css">
+        body{
+            /*background: url("{{ static_url('img/back.png') }}");*/
+            background: #7B1FA2;
+            background-repeat: no-repeat;
+              background-position: center 0;
+              background-size: cover;
+              background-attachment: fixed;
+
+            font-family: 'Arima Madurai', cursive;
+        }
+        #name{
+            font-size: 80px;
+            color: #fff;
+        }
+        .intro{
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>BuckUp</h1>
+
+    <div class="row" style="width: 90%;margin: auto;margin-top:50px; ">
+        <div class="col-md-4">
+          <img src="static/img/mobile.png" style="width: 300px;">  
+        </div>
+        <div class="col-md-8">
+            <center>
+                <div class="intro">
+                    <h1 id="name">Buckup</h1>
+                    <br>
+                    <h1>Be Organized, write down memories</h1>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="https://goo.gl/bo4CHg"><img src="static/img/download.png" width="200px;"></a>
+                </div>
+            </center>
+        </div>
+    </div>
     
     <script src="static/plugins/jquery-1.10.2.js"></script>
     <script src="static/plugins/bootstrap.js"></script>    
