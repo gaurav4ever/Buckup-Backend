@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
     <style type="text/css">
         body{
-            /*background: url("{{ static_url('img/back.png') }}");*/
-            background: #7B1FA2;
+            background: url("{{ static_url('img/back.png') }}");
+            /*background: #7B1FA2;*/
             background-repeat: no-repeat;
               background-position: center 0;
               background-size: cover;
@@ -28,20 +28,23 @@
         .intro{
             padding-left: 20px;
         }
+        #description{
+            color: #dcdcdc;
+        }
     </style>
 </head>
 <body>
 
     <div class="row" style="width: 90%;margin: auto;margin-top:50px; ">
         <div class="col-md-4">
-          <img src="static/img/mobile.png" style="width: 300px;">  
+          <img src="static/img/mobile1.png" style="width: 280px;">  
         </div>
         <div class="col-md-8">
             <center>
                 <div class="intro">
                     <h1 id="name">Buckup</h1>
                     <br>
-                    <h1>Be Organized, write down memories</h1>
+                    <h1 id="description">Be Organized, write down memories</h1>
                     <br>
                     <br>
                     <br>
