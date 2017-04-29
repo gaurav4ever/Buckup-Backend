@@ -7,5 +7,5 @@ import motor
 from bson.objectid import ObjectId
 import re
 
-db = motor.MotorClient('mongodb://gaurav:dytila@ds027145.mlab.com:27145/dytila')['dytila']
+db = motor.MotorClient('mongodb://gaurav:gaurav0635@ds155490.mlab.com:55490/personal')['personal']
 					
