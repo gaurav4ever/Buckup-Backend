@@ -32,5 +32,9 @@ route = [
 		(
 			r"/data/([^/]+)",
 			backup.getDataHandler
+		),
+		(
+			r"/osl",
+			home.oslHandler
 		)
 ]

@@ -15,3 +15,8 @@ class notesHandler(tornado.web.RequestHandler):
 	def get(self):
 		notes=yield db.table_notes.find().to_list(None)
 		self.render('notes.html',notes=notes)
+
+class oslHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+		self.render('osl.html')
