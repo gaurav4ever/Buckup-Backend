@@ -1,46 +1,28 @@
 from modules import *
-
-class registerHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def post(self):
-		email = self.get_argument('email')
-		password = self.get_argument('password')
-		fname = self.get_argument('fname')
-		lname = self.get_argument('lname')
-		mobile = self.get_argument('mobile')
-		exists = yield db.users.find_one({'email':email})
-		if bool(exists):
-			self.redirect('/?alreadyReg=true')
-		else:
-			print "hello"
-			users = {
-				'email': email,
-				'password': password,
-				'full_name': fname,
-				'last_name': lname,
-				'mobile': mobile,
-				'activated':1,
-				'DP':100
-			}
-			yield db.users.insert(users)
-			exists = yield db.users.find_one({'email':email,'password':password})
-			self.set_secure_cookie('user',str(exists['_id']))
-			self.redirect('/')
+import json
+from tornado.escape import json_encode
 
 class loginHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def post(self):
-		email = self.get_argument('email')
-		password = self.get_argument('password')
-		exists = yield db.users.find_one({'email':email,'password':password})
-		if bool(exists):
-			self.set_secure_cookie('user',str(exists['_id']))
-			self.redirect('/')
-		else:
-			self.redirect('/?login=false')
+		username=self.get_argument('username')
+		email= self.get_argument('email')
+		avatar= self.get_argument('avatar')
 
-class logoutHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
-		self.clear_cookie('user')
-		self.redirect('/')
+		exists = yield db.users.find_one({'email':email})
+		if bool(exists)==0:
+			a={
+				"username":username,
+				"email":email,
+				"avatar":avatar
+			}
+			db.users.insert(a)
+
+		user_id=yield db.users.find_one({'email':email})
+		c={
+			"status":"success",
+			"user_id":str(user_id['_id'])
+		}
+		self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
+		self.set_header("Content-Type", "application/json")
+			

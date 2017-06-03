@@ -1,0 +1,47 @@
+.navbar{
+	background-color: #000;
+	border:0px;
+	border-radius: 0;
+	color: #fff !important;
+}
+.row{
+	padding: 0;
+	margin:0;
+}
+.main-options{
+	padding: 15px;
+}
+.main-options a{
+	color: #fff !important;
+}
+.main-body{
+	width: 90%;
+	margin: auto;
+}
+.sidebar{
+	margin-top: 20px;
+	border-left: 1px solid #000;
+}
+.sidebar div{
+	padding: 0;
+}
+.categories ul{
+	padding: 0;
+}
+.categories ul li{
+	list-style: none;
+	padding-left: 5px;
+}
+.categories ul li a{
+	color: #a52222;
+}
+.categories ul li a:hover{
+	text-decoration: none;
+	color: #000;
+}
+.footer{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #a52222;
+    color: #fff;
+}

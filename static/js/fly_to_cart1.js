@@ -49,7 +49,7 @@ $('#wish_list_button').on('click', function () {
             var user_email=$("#id_u_email").val();
             var user_mobile=$("#id_u_mobile").val();
             var user_location=$("#id_u_location").val();
-            alert("Location : "+user_location);
+            
             if(user_location.length<1){
                 alert("Please Enter Location");
                 flag=0;
@@ -65,7 +65,7 @@ $('#wish_list_button').on('click', function () {
             if(flag==1){
                 $.ajax({
                     type:"POST",
-                    url:"../controllers/wishListHandler.php",
+                    url:"controllers/wishListHandler.php",
                     data:{
                         user_id:user_id,
                         user_email:user_email,
@@ -80,9 +80,10 @@ $('#wish_list_button').on('click', function () {
                         payment_method:payment_method
                     },
                     success:function(data){
+                        
                         data=JSON.parse(data);
                         console.log(data);
-                        alert(data['status']);
+                        
                     }
                 });
             }
@@ -92,7 +93,7 @@ $('#wish_list_button').on('click', function () {
         $("#exist").slideDown(200);
         setTimeout(function(){
             $("#exist").slideUp(200);
-                $(that).html(text);
+                
             }, 2000);
     }
 

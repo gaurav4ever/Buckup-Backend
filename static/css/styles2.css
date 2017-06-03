@@ -1,0 +1,110 @@
+html, body {
+    background-color: #f0f0f0;
+    color: #000;
+    font-family: 'Lato', sans-serif;
+    
+    height: 100vh;
+    margin: 0;
+}
+hr{
+    background-color: #dcdcdc;
+    height: 1px;
+}
+#divider-lg{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.row{
+    padding: 0px;
+    margin: 0px;
+}
+.full-height {
+    height: 100vh;
+}
+.aboutUsArea{
+    background-image: url("../img/back8.jpg");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+}
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-image: url("../img/back6.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #fff;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+.main-body{
+    color: #000;
+    width: 100%;
+    margin: auto;
+
+}
+.about-us p{
+    padding: 20px;
+}
+#heading{
+    font-size: 50px;
+}
+#contact{
+    background-image: url("../img/vit2.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 20%;
+    
+}
+#contact h1,#contact h4{
+    text-shadow: 8px 8px 30px #000;
+}
+.content_contact{
+    background: #000;
+}
+#contact ul li{
+    list-style: none;
+    padding: 10px;
+    text-shadow: 2px 2px #ff0000;
+}
+.footer{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #a52222;
+    color: #fff;
+}
