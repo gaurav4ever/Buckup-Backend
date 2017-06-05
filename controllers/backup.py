@@ -196,7 +196,8 @@ class getDataHandler(tornado.web.RequestHandler):
 				"id":data['id'],
 				"date":data['date'],
 				"title":data['title'],
-				"body":data['body']
+				"body":data['body'],
+				"tag":data['tag']
 			}
 			a.append(b)
 		notes_data={
