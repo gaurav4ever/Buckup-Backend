@@ -23,6 +23,7 @@ class backUpAllHandler(tornado.web.RequestHandler):
 					"date":i['date'],
 					"title":i['title'],
 					"body":i['body'],
+					"tag":i['tag']
 				}
 				db.table_notes.insert(a)
 			else:
@@ -37,6 +38,7 @@ class backUpAllHandler(tornado.web.RequestHandler):
 									"date":i['date'],
 									"title":i['title'],
 									"body":i['body'],
+									"tag":i['tag']
 								}
 						}
 					)
@@ -137,7 +139,8 @@ class restoreHandler(tornado.web.RequestHandler):
 				"id":data['id'],
 				"date":data['date'],
 				"title":data['title'],
-				"body":data['body']
+				"body":data['body'],
+				"tag":data['tag']
 			}
 			a.append(b)
 		notes_data={
