@@ -40,5 +40,10 @@ route = [
 		(
 			r"/encrypt",
 			extra.encryptHandler
+		),
+		# ********************************* ADMIN ***************************************************
+		(
+			r"/admin/users",
+			admin.usersHandler
 		)
 ]
