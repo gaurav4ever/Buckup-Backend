@@ -36,7 +36,6 @@ class backUpAllHandler(tornado.web.RequestHandler):
 						{
 							"$set":
 								{
-									"created_on":i['created_on'],
 									"updated_on":i['updated_on'],
 									"title":i['title'],
 									"body":i['body'],
