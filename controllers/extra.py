@@ -11,36 +11,9 @@ class dbHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
 		# user=yield db.users.find_one({"email":"gauravsharma.mvp@gmail.com"})
-		notes=yield db.table_notes.find().to_list(None)
+		notes=yield db.notes.find().to_list(None)
 		for i in notes:
-			date=i['date']
-			
-			date=date.split(" ")
-			# print date
-
-			date1=date[0].split("/")
-			day=date1[0]
-			month=date1[1]
-			year="20"+date1[2]
-			date_final1=year+"-"+month+"-"+day
-
-			date2=date[1]
-
-			date_final=date_final1+" "+date2
-
-			print date_final
-
-			db.table_notes.update(
-					{
-						"_id":i['_id']
-					},
-					{
-						"$set":
-							{
-								"date":date_final
-							}
-					}
-				)
+			db.table_notes.insert(i)
 		self.write(json.dumps("success", sort_keys=True,indent=4, separators=(',', ': ')))
 		self.set_header("Content-Type", "application/json")
 

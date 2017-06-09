@@ -20,7 +20,8 @@ class backUpAllHandler(tornado.web.RequestHandler):
 				a={
 					"user_id":user_id,
 					"id":i['id'],
-					"date":i['date'],
+					"created_on":i['created_on'],
+					"updated_on":i['updated_on'],
 					"title":i['title'],
 					"body":i['body'],
 					"tag":i['tag']
@@ -35,7 +36,8 @@ class backUpAllHandler(tornado.web.RequestHandler):
 						{
 							"$set":
 								{
-									"date":i['date'],
+									"created_on":i['created_on'],
+									"updated_on":i['updated_on'],
 									"title":i['title'],
 									"body":i['body'],
 									"tag":i['tag']
@@ -137,7 +139,8 @@ class restoreHandler(tornado.web.RequestHandler):
 		for data in notes:
 			b={
 				"id":data['id'],
-				"date":data['date'],
+				"created_on":data['created_on'],
+				"updated_on":data['updated_on'],
 				"title":data['title'],
 				"body":data['body'],
 				"tag":data['tag']
@@ -194,7 +197,8 @@ class getDataHandler(tornado.web.RequestHandler):
 		for data in notes:
 			b={
 				"id":data['id'],
-				"date":data['date'],
+				"created_on":data['created_on'],
+				"updated_on":data['updated_on'],
 				"title":data['title'],
 				"body":data['body'],
 				"tag":data['tag']
