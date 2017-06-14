@@ -11,9 +11,19 @@ class dbHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
 		# user=yield db.users.find_one({"email":"gauravsharma.mvp@gmail.com"})
-		notes=yield db.notes.find().to_list(None)
-		for i in notes:
-			db.table_notes.insert(i)
+		data=yield db.table_notes.find().to_list(None)
+		for i in data:
+			db.table_notes.update(
+					{
+						"_id":i['_id']
+					},
+					{
+						"$set":
+							{
+								"location":"null"
+							}
+					}
+				)
 		self.write(json.dumps("success", sort_keys=True,indent=4, separators=(',', ': ')))
 		self.set_header("Content-Type", "application/json")
 

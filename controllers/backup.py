@@ -24,7 +24,8 @@ class backUpAllHandler(tornado.web.RequestHandler):
 					"updated_on":i['updated_on'],
 					"title":i['title'],
 					"body":i['body'],
-					"tag":i['tag']
+					"tag":i['tag'],
+					"location":i['location'],
 				}
 				db.table_notes.insert(a)
 			else:
@@ -39,7 +40,8 @@ class backUpAllHandler(tornado.web.RequestHandler):
 									"updated_on":i['updated_on'],
 									"title":i['title'],
 									"body":i['body'],
-									"tag":i['tag']
+									"tag":i['tag'],
+									"location":i['location'],
 								}
 						}
 					)
@@ -142,7 +144,8 @@ class restoreHandler(tornado.web.RequestHandler):
 				"updated_on":data['updated_on'],
 				"title":data['title'],
 				"body":data['body'],
-				"tag":data['tag']
+				"tag":data['tag'],
+				"location":data['location'],
 			}
 			a.append(b)
 		notes_data={
@@ -200,7 +203,8 @@ class getDataHandler(tornado.web.RequestHandler):
 				"updated_on":data['updated_on'],
 				"title":data['title'],
 				"body":data['body'],
-				"tag":data['tag']
+				"tag":data['tag'],
+				"location":data['location'],
 			}
 			a.append(b)
 		notes_data={
