@@ -1,0 +1,17 @@
+#sidebar ul{
+	margin: 0;
+	padding: 0;
+}
+#sidebar ul li{
+	list-style: none;
+	text-decoration: none;
+	padding-bottom: 20px;
+}
+#option_type_img{
+	width: 30px;
+}
+#option_type{
+	color: #7B1FA2;
+	font-size: 22px;
+	margin-left: 10px;
+}
