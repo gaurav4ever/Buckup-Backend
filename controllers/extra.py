@@ -31,6 +31,8 @@ class encryptHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
 
+		# *************************** Encryption ***********************
+
 		# notes=yield db.table_notes.find().to_list(None)
 		
 		# b=list()
@@ -66,6 +68,9 @@ class encryptHandler(tornado.web.RequestHandler):
 		# 	}
 		# 	b.append(a)
 		# 	db.notes_encrypted.insert(a)
+
+
+		# *************************** Decryption ***********************
 
 		data=yield db.notes_encrypted.find().to_list(None)
 		b=list()

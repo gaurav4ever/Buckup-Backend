@@ -37,6 +37,7 @@ route = [
 			r"/osl",
 			home.oslHandler
 		),
+		# ********************************* Encryption ***************************************************
 		(
 			r"/encrypt",
 			extra.encryptHandler
