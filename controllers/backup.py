@@ -9,10 +9,12 @@ class backUpAllHandler(tornado.web.RequestHandler):
 		notesData=self.get_argument('notesData')
 		diaryData=self.get_argument('diaryData')
 		bucketListData=self.get_argument('bucketListData')
+		toDoListData=self.get_argument('toDoListData')
 
 		nd=json.loads(notesData)
 		dd=json.loads(diaryData)
 		bld=json.loads(bucketListData)
+		tdd=json.loads(toDoListData)
 
 		for i in nd['data']:
 			data=yield db.table_notes.find_one({"user_id":user_id,"id":i['id']})
@@ -100,6 +102,37 @@ class backUpAllHandler(tornado.web.RequestHandler):
 									"title":i['title'],
 									"body":i['body'],
 									"cat_id":i['cat_id'],
+									"created_on":i['created_on'],
+									"updated_on":i['updated_on']
+								}
+						}
+					)
+
+		for i in tdd['data']:
+			data=yield db.table_todolist.find_one({"user_id":user_id,"id":i['id']})
+			if bool(data)=0:
+				a={
+					"user_id":user_id,
+					"id":i['id'],
+					"desc":i['desc'],
+					"isDone":i['isDone'],
+					"created_on":i['created_on'],
+					"updated_on":i['updated_on']
+				}
+				db.table_todolist.insert(a)
+			else:
+				db.table_todolist.update(
+						{
+							"user_id":user_id,
+							"id":i['id']
+						},
+						{
+							"$set":
+								{
+									"user_id":user_id,
+									"id":i['id'],
+									"desc":i['desc'],
+									"isDone":i['isDone'],
 									"created_on":i['created_on'],
 									"updated_on":i['updated_on']
 								}
