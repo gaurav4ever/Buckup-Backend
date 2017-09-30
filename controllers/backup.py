@@ -15,6 +15,7 @@ class backUpAllHandler(tornado.web.RequestHandler):
 		dd=json.loads(diaryData)
 		bld=json.loads(bucketListData)
 		tdd=json.loads(toDoListData)
+		print tdd
 
 		for i in nd['data']:
 			data=yield db.table_notes.find_one({"user_id":user_id,"id":i['id']})
