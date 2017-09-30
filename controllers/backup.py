@@ -217,11 +217,11 @@ class restoreHandler(tornado.web.RequestHandler):
 		e=list()
 		for data in tdl:
 			b={
-				"id":i['id'],
-				"desc":i['desc'],
-				"isDone":i['isDone'],
-				"created_on":i['created_on'],
-				"updated_on":i['updated_on']
+				"id":data['id'],
+				"desc":data['desc'],
+				"isDone":data['isDone'],
+				"created_on":data['created_on'],
+				"updated_on":data['updated_on']
 			}
 			e.append(b)
 		td_data={
