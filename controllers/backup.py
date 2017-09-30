@@ -110,7 +110,7 @@ class backUpAllHandler(tornado.web.RequestHandler):
 
 		for i in tdd['data']:
 			data=yield db.table_todolist.find_one({"user_id":user_id,"id":i['id']})
-			if bool(data)=0:
+			if bool(data)==0:
 				a={
 					"user_id":user_id,
 					"id":i['id'],
