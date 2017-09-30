@@ -170,6 +170,7 @@ class restoreHandler(tornado.web.RequestHandler):
 		notes=yield db.table_notes.find({"user_id":user_id}).to_list(None)
 		diary=yield db.table_diary.find({"user_id":user_id}).to_list(None)
 		bl=yield db.table_bl.find({"user_id":user_id}).to_list(None)
+		tdl=yield db.table_todolist.find({"user_id":user_id}).to_list(None)
 		a=list()
 		for data in notes:
 			b={
@@ -213,10 +214,25 @@ class restoreHandler(tornado.web.RequestHandler):
 			"data":d
 		}
 
+		e=list()
+		for data in tdl:
+			b={
+				"id":i['id'],
+				"desc":i['desc'],
+				"isDone":i['isDone'],
+				"created_on":i['created_on'],
+				"updated_on":i['updated_on']
+			}
+			e.append(b)
+		td_data={
+			"data":e
+		}
+
 		c={
 			"notes_data":notes_data,
 			"diary_data":diary_data,
-			"bl_data":bl_data
+			"bl_data":bl_data,
+			"td_data":td_data
 		}
 		self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 		self.set_header("Content-Type", "application/json")
@@ -229,6 +245,7 @@ class getDataHandler(tornado.web.RequestHandler):
 		notes=yield db.table_notes.find({"user_id":user_id}).to_list(None)
 		diary=yield db.table_diary.find({"user_id":user_id}).to_list(None)
 		bl=yield db.table_bl.find({"user_id":user_id}).to_list(None)
+		tdl=yield db.table_todolist.find({"user_id":user_id}).to_list(None)
 		a=list()
 		for data in notes:
 			b={
@@ -272,10 +289,25 @@ class getDataHandler(tornado.web.RequestHandler):
 			"data":d
 		}
 
+		e=list()
+		for data in tdl:
+			b={
+				"id":i['id'],
+				"desc":i['desc'],
+				"isDone":i['isDone'],
+				"created_on":i['created_on'],
+				"updated_on":i['updated_on']
+			}
+			e.append(b)
+		td_data={
+			"data":e
+		}
+
 		c={
 			"notes_data":notes_data,
 			"diary_data":diary_data,
-			"bl_data":bl_data
+			"bl_data":bl_data,
+			"td_data":td_data
 		}
 		self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 		self.set_header("Content-Type", "application/json")
