@@ -11,6 +11,7 @@ class backUpAllHandler(tornado.web.RequestHandler):
 		bucketListData=self.get_argument('bucketListData')
 		toDoListData=self.get_argument('toDoListData')
 
+		# convert string data to json data
 		nd=json.loads(notesData)
 		dd=json.loads(diaryData)
 		bld=json.loads(bucketListData)
