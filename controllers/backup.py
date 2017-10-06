@@ -5,6 +5,7 @@ from tornado.escape import json_encode
 class backUpAllHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def post(self):
+		# get data from post request
 		user_id=self.get_argument('user_id')
 		notesData=self.get_argument('notesData')
 		diaryData=self.get_argument('diaryData')
