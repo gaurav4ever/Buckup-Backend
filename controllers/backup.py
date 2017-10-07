@@ -167,7 +167,7 @@ class restoreHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def post(self):
 		user_id=self.get_argument('user_id')
-		
+		# Get data from cloud for restore
 		notes=yield db.table_notes.find({"user_id":user_id}).to_list(None)
 		diary=yield db.table_diary.find({"user_id":user_id}).to_list(None)
 		bl=yield db.table_bl.find({"user_id":user_id}).to_list(None)
