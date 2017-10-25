@@ -8,11 +8,15 @@ class dataHandler(tornado.web.RequestHandler):
 		user=self.get_argument('user')
 		msg=self.get_argument('msg')
 		date=self.get_argument('date')
-	
+		to=""
+		if user=="gaurav":
+			to="prem"
+		else to="gaurav"
 		a={
 			"from":user,
 			"msg":msg,
-			"date":date
+			"date":date,
+			"to":to
 		}
 		db.mobile.insert(a)
 		self.write(json.dumps("success", sort_keys=True,indent=4, separators=(',', ': ')))
@@ -26,6 +30,7 @@ class allDataHandler(tornado.web.RequestHandler):
 		for d in data:
 			a={
 				"from":d['from'],
+				"to":d['to'],
 				"msg":d['msg'],
 				"date":d['date']
 			}
