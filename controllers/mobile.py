@@ -11,7 +11,8 @@ class dataHandler(tornado.web.RequestHandler):
 		to=""
 		if user=="gaurav":
 			to="prem"
-		else to="gaurav"
+		else:
+			to="gaurav"
 		a={
 			"from":user,
 			"msg":msg,
