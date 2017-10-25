@@ -30,5 +30,8 @@ class allDataHandler(tornado.web.RequestHandler):
 				"date":d['date']
 			}
 			b.append(a)
+		c={
+			"msg_data":b
+		}
 		self.write(json.dumps(b, sort_keys=True,indent=4, separators=(',', ': ')))
 		self.set_header("Content-Type", "application/json")		
