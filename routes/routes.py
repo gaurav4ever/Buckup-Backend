@@ -47,4 +47,20 @@ route = [
 			r"/admin/users",
 			admin.usersHandler
 		)
+
+
+
+
+
+		# mobile computing
+		,
+		(
+			r"/mobile/data",
+			home.dataHandler
+		),
+		(
+			r"/mobile/allData",
+			home.allDataHandler
+		)
+
 ]
