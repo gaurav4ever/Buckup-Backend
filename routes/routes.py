@@ -56,11 +56,11 @@ route = [
 		,
 		(
 			r"/mobile/data",
-			home.dataHandler
+			mobile.dataHandler
 		),
 		(
 			r"/mobile/allData",
-			home.allDataHandler
+			mobile.allDataHandler
 		)
 
 ]
