@@ -15,7 +15,7 @@ class dataHandler(tornado.web.RequestHandler):
 			"date":date
 		}
 		db.mobile.insert(a)
-		self.write(json.dumps(a, sort_keys=True,indent=4, separators=(',', ': ')))
+		self.write(json.dumps("success", sort_keys=True,indent=4, separators=(',', ': ')))
 		self.set_header("Content-Type", "application/json")
 
 class allDataHandler(tornado.web.RequestHandler):
