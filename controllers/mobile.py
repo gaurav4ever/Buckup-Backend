@@ -7,16 +7,12 @@ class dataHandler(tornado.web.RequestHandler):
 	def post(self):
 		user=self.get_argument('user')
 		msg=self.get_argument('msg')
-		from pytz import timezone
-		import pytz
-		from datetime import datetime
-		indianTimeZone=timezone('Asia/Kolkata')
-		mT=datetime.now(indianTimeZone)
-		mTime=mT.strftime("%d/%m/%Y %I:%M:%S%p")
+		date=self.get_argument('date')
+	
 		a={
 			"from":user,
 			"msg":msg,
-			"date":mTime
+			"date":date
 		}
 		db.mobile.insert(a)
 		self.write(json.dumps(a, sort_keys=True,indent=4, separators=(',', ': ')))
